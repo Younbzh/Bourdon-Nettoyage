@@ -1,263 +1,408 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, MapPin, Clock, Phone, Instagram, Swords, Flame, Shield, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { MapPin, Phone, Clock, Star, Sparkles, Flame, Heart, ShoppingBag, Users, ChevronDown, Soup } from 'lucide-react';
 import { siteConfig } from './config/siteConfig';
 
-export default function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
-  };
-
+const App = () => {
   return (
-    <div className="min-h-screen bg-amber-50 text-amber-950" style={{
-      fontFamily: '"Cinzel", serif'
-    }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
-        
-        .font-serif { font-family: 'Cinzel', serif; }
-        .font-body { font-family: 'Lora', serif; }
-        
-        .parchment {
-          background: linear-gradient(rgba(245, 222, 179, 0.95), rgba(222, 184, 135, 0.95)),
-            url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-        }
-        
-        .torch-glow { animation: torchFlicker 3s ease-in-out infinite; }
-        @keyframes torchFlicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.85; } }
-        
-        .float { animation: float 6s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        
-        .fade-up { animation: fadeUp 0.8s ease-out forwards; opacity: 0; }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-      `}</style>
-
-      {/* Nav */}
-      <nav className={`fixed w-full z-50 transition-all ${
-        scrolled ? 'bg-amber-900/95 backdrop-blur' : 'bg-gradient-to-b from-amber-900/90 to-transparent'
-      }`}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex justify-between items-center h-20">
-            <button onClick={() => scrollToSection('hero')} className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-amber-700 rounded-full flex items-center justify-center torch-glow">
-                <Flame className="w-7 h-7 text-amber-200" />
-              </div>
-              <div>
-                <h1 className="font-serif text-xl font-bold text-amber-100">{siteConfig.name}</h1>
-                <p className="text-xs text-amber-300 font-semibold uppercase tracking-widest">Plénée-Jugon</p>
-              </div>
-            </button>
-
-            <div className="hidden lg:flex items-center gap-8">
-              {['concept', 'horaires', 'contact'].map(item => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className="text-sm font-semibold text-amber-200 hover:text-amber-100 transition uppercase tracking-wider"
-                >
-                  {item}
-                </button>
-              ))}
-              <a
-                href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
-                className="px-6 py-3 bg-amber-600 text-white rounded font-bold hover:bg-amber-700 transition uppercase text-sm tracking-wider"
-              >
-                Réserver
-              </a>
-            </div>
-
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden text-amber-200">
-              {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-            </button>
-          </div>
-
-          {isMenuOpen && (
-            <div className="lg:hidden py-6 border-t border-amber-700/30">
-              <div className="flex flex-col gap-4">
-                {['concept', 'horaires', 'contact'].map(item => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item)}
-                    className="text-left py-2 text-amber-200 hover:text-amber-100 font-semibold uppercase tracking-wider"
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+    <div className="min-h-screen bg-neutral-50">
+      {/* Hero Section - K-Street Food Vibe */}
+      <header className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-600 via-rose-500 to-orange-500">
+        {/* Animated background pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
+          <div className="absolute top-20 right-10 w-72 h-72 bg-yellow-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
-      </nav>
 
-      {/* Hero */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900 via-amber-800 to-stone-900"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZyIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=')] opacity-20"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-2 bg-amber-700/80 backdrop-blur rounded-full mb-8 fade-up">
-            <Swords className="w-5 h-5 text-amber-200" />
-            <span className="text-sm font-bold text-amber-100 uppercase tracking-widest">{siteConfig.tagline}</span>
+        {/* Decorative elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 text-9xl">🌶️</div>
+          <div className="absolute top-1/3 right-1/4 text-8xl">🍜</div>
+          <div className="absolute bottom-1/4 left-1/3 text-7xl">🥢</div>
+          <div className="absolute top-2/3 right-1/3 text-6xl">🥬</div>
+        </div>
+
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          {/* Logo avec effet néon */}
+          <div className="mb-8">
+            <div className="inline-block mb-6 px-8 py-3 bg-white/20 backdrop-blur-sm rounded-full border-2 border-white/50">
+              <span className="text-white font-bold text-lg tracking-wider">NOUVEAU À SAINT-BRIEUC</span>
+            </div>
+            <h1 className="text-7xl md:text-9xl font-black text-white mb-4 drop-shadow-2xl" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em' }}>
+              LE GRIFFON<br/>GLOUTON
+            </h1>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-1 w-20 bg-yellow-300"></div>
+              <Flame className="w-10 h-10 text-yellow-300 animate-pulse" />
+              <div className="h-1 w-20 bg-yellow-300"></div>
+            </div>
           </div>
 
-          <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 text-amber-100 fade-up" style={{
-            textShadow: '0 4px 20px rgba(0,0,0,0.5)', animationDelay: '0.2s'
-          }}>
-            {siteConfig.name}
-          </h1>
-
-          <p className="font-serif text-3xl sm:text-4xl text-amber-200 mb-6 fade-up" style={{ animationDelay: '0.4s' }}>
-            {siteConfig.hero.subtitle}
+          {/* Tagline */}
+          <p className="text-3xl md:text-5xl font-bold text-yellow-200 mb-4 drop-shadow-lg" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            STREET FOOD CORÉENNE
+          </p>
+          
+          <p className="text-xl md:text-2xl text-white/90 mb-12 font-medium">
+            {siteConfig.slogan} 🇰🇷
           </p>
 
-          <p className="font-body text-xl text-amber-100/90 max-w-3xl mx-auto mb-12 leading-relaxed fade-up" style={{ animationDelay: '0.6s' }}>
-            {siteConfig.hero.description}
-          </p>
+          {/* Key features badges */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full text-red-600 font-bold text-lg shadow-xl">
+              <span className="mr-2">🥬</span> Kimchi Maison
+            </div>
+            <div className="px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full text-red-600 font-bold text-lg shadow-xl">
+              <span className="mr-2">⚡</span> Authentique
+            </div>
+            <div className="px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full text-red-600 font-bold text-lg shadow-xl">
+              <span className="mr-2">🔥</span> Fait Maison
+            </div>
+          </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center fade-up" style={{ animationDelay: '0.8s' }}>
+          {/* Rating */}
+          <div className="mb-12">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full shadow-2xl">
+              <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+              <span className="font-bold text-2xl text-gray-800">{siteConfig.rating.score}/5</span>
+              <span className="text-gray-600">• Ouvert janvier 2025</span>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
-              className="px-10 py-5 bg-amber-600 text-white rounded-lg font-bold text-lg hover:bg-amber-700 transition uppercase tracking-wider flex items-center justify-center gap-3 shadow-2xl"
+              href="#menu"
+              className="group bg-white hover:bg-yellow-300 text-red-600 px-12 py-5 font-black text-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3 rounded-full"
+              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
             >
-              <Phone className="w-6 h-6" />
-              Réserver
+              <Soup className="w-6 h-6" />
+              Découvrir le Menu
             </a>
-            <button
-              onClick={() => scrollToSection('concept')}
-              className="px-10 py-5 border-2 border-amber-400 text-amber-100 rounded-lg font-bold text-lg hover:bg-amber-400/20 transition uppercase tracking-wider"
+            <a
+              href="#contact"
+              className="group bg-red-700 hover:bg-red-800 text-white px-12 py-5 font-black text-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3 rounded-full"
+              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
             >
-              Découvrir
-            </button>
+              <MapPin className="w-6 h-6" />
+              Nous Trouver
+            </a>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <ChevronDown className="w-10 h-10 text-white" />
+        </div>
+      </header>
+
+      {/* Notre Histoire */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4 px-6 py-2 bg-red-100 rounded-full">
+              <span className="text-red-600 font-bold">À PROPOS</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Notre Histoire
+            </h2>
+            <div className="w-24 h-2 bg-red-500 mx-auto mb-8"></div>
           </div>
 
-          <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto fade-up" style={{ animationDelay: '1s' }}>
-            <div className="text-center">
-              <p className="text-5xl mb-2">🏰</p>
-              <p className="text-sm text-amber-200 uppercase tracking-wider">Médiéval</p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Story */}
+            <div>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                {siteConfig.about.story}
+              </p>
+              <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl border-l-4 border-red-500">
+                <p className="text-xl font-bold text-red-700 italic mb-4">
+                  "{siteConfig.about.vision}"
+                </p>
+              </div>
             </div>
-            <div className="text-center">
-              <p className="text-5xl mb-2">🧙‍♂️</p>
-              <p className="text-sm text-amber-200 uppercase tracking-wider">Fantastique</p>
+
+            {/* Values */}
+            <div className="grid grid-cols-2 gap-4">
+              {siteConfig.about.values.map((value, index) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-red-500 to-orange-500 p-6 rounded-xl text-white text-center hover:scale-105 transition-transform duration-300 shadow-lg"
+                >
+                  <p className="font-bold">{value}</p>
+                </div>
+              ))}
             </div>
-            <div className="text-center">
-              <p className="text-5xl mb-2">⚔️</p>
-              <p className="text-sm text-amber-200 uppercase tracking-wider">Aventure</p>
+          </div>
+
+          {/* Team */}
+          <div className="mt-16 text-center">
+            <h3 className="text-3xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              L'Équipe
+            </h3>
+            <div className="flex flex-wrap justify-center gap-6">
+              {siteConfig.company.team.map((member, index) => (
+                <div key={index} className="px-6 py-3 bg-gray-100 rounded-full text-gray-800 font-medium">
+                  <Users className="w-5 h-5 inline mr-2 text-red-500" />
+                  {member}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Concept */}
-      <section id="concept" className="py-24 parchment relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      {/* Spécialité Signature */}
+      <section className="py-20 px-4 bg-gradient-to-br from-yellow-50 to-orange-50">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="inline-block mb-4 px-6 py-2 bg-yellow-200 rounded-full">
+            <span className="text-yellow-900 font-bold">NOTRE FIERTÉ</span>
+          </div>
+          <h2 className="text-6xl md:text-7xl font-black text-gray-900 mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            {siteConfig.specialties.signature.icon} {siteConfig.specialties.signature.name}
+          </h2>
+          <p className="text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed">
+            {siteConfig.specialties.signature.description}
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: "🥬", text: "100% Maison", desc: "Fait chaque jour" },
+              { icon: "🌶️", text: "Authentique", desc: "Recette traditionnelle" },
+              { icon: "❤️", text: "Avec Amour", desc: "Préparé avec soin" }
+            ].map((item, index) => (
+              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div className="text-6xl mb-4">{item.icon}</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{item.text}</h3>
+                <p className="text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Menu - Les Spécialités */}
+      <section className="py-20 px-4 bg-white" id="menu">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <Shield className="w-16 h-16 mx-auto mb-6 text-amber-800" />
-            <h2 className="font-serif text-5xl sm:text-6xl font-bold mb-6 text-amber-900">
-              Notre Univers
+            <div className="inline-block mb-4 px-6 py-2 bg-red-100 rounded-full">
+              <span className="text-red-600 font-bold">MENU</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Nos Spécialités Coréennes
             </h2>
-            <p className="font-body text-xl text-amber-800 max-w-3xl mx-auto">
-              Un lieu authentique où se mêlent Moyen-Âge et fantastique, avec de nombreux clins d'œil à l'univers de Tolkien
+            <div className="w-24 h-2 bg-red-500 mx-auto"></div>
+          </div>
+
+          <div className="space-y-16">
+            {siteConfig.specialties.categories.map((category, catIndex) => (
+              <div key={catIndex}>
+                <div className="mb-8">
+                  <h3 className="text-4xl font-black text-red-600 mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    {category.name}
+                  </h3>
+                  <p className="text-lg text-gray-600">{category.description}</p>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {category.dishes.map((dish, dishIndex) => (
+                    <div
+                      key={dishIndex}
+                      className={`relative bg-gradient-to-br ${
+                        dish.popular ? 'from-red-500 to-orange-500 text-white' : 'from-gray-50 to-gray-100'
+                      } p-6 rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl group`}
+                    >
+                      {dish.popular && (
+                        <div className="absolute -top-3 -right-3 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                          <Sparkles className="w-4 h-4 inline mr-1" />
+                          POPULAIRE
+                        </div>
+                      )}
+                      <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        {dish.icon}
+                      </div>
+                      <h4 className={`text-xl font-bold mb-3 ${dish.popular ? 'text-white' : 'text-gray-900'}`}>
+                        {dish.name}
+                      </h4>
+                      <p className={`text-sm leading-relaxed ${dish.popular ? 'text-white/90' : 'text-gray-600'}`}>
+                        {dish.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Les Saveurs */}
+      <section className="py-20 px-4 bg-gradient-to-br from-red-500 via-rose-500 to-orange-500 text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4 px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full">
+              <span className="text-white font-bold">INGRÉDIENTS</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              {siteConfig.ingredients.title}
+            </h2>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+              {siteConfig.ingredients.description}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {siteConfig.concept.activities.map((act, i) => (
-              <div key={i} className="bg-amber-100 border-2 border-amber-800 rounded-lg p-8 hover:shadow-2xl transition float" style={{ animationDelay: `${i * 0.2}s` }}>
-                <div className="text-6xl mb-6 text-center">{act.icon}</div>
-                <h3 className="font-serif text-2xl font-bold mb-4 text-amber-900 text-center">{act.title}</h3>
-                <p className="font-body text-amber-800 text-center leading-relaxed">{act.description}</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {siteConfig.ingredients.essentials.map((ingredient, index) => (
+              <div
+                key={index}
+                className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border-2 border-white/20 hover:bg-white/20 transition-all duration-300"
+              >
+                <h3 className="text-2xl font-bold mb-3">{ingredient.name}</h3>
+                <p className="text-white/80 mb-3">{ingredient.description}</p>
+                <div className="inline-block px-4 py-2 bg-yellow-400 text-gray-900 rounded-full text-sm font-bold">
+                  {ingredient.flavor}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Horaires */}
-      <section id="horaires" className="py-24 bg-gradient-to-br from-amber-900 to-stone-900 text-amber-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      {/* Culture Coréenne */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <Clock className="w-16 h-16 mx-auto mb-6 text-amber-400" />
-            <h2 className="font-serif text-5xl font-bold mb-4">{siteConfig.schedule.title}</h2>
+            <div className="inline-block mb-4 px-6 py-2 bg-orange-100 rounded-full">
+              <span className="text-orange-600 font-bold">CULTURE</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              {siteConfig.culture.title}
+            </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              {siteConfig.culture.intro}
+            </p>
           </div>
 
-          <div className="max-w-3xl mx-auto bg-amber-950/50 backdrop-blur border-2 border-amber-700 rounded-lg overflow-hidden">
-            {siteConfig.schedule.hours.map((h, i) => (
-              <div key={i} className={`flex justify-between items-center p-6 ${i !== siteConfig.schedule.hours.length - 1 ? 'border-b border-amber-800/30' : ''} ${h.hours === 'Fermé' ? 'opacity-50' : ''}`}>
-                <span className="font-serif text-xl font-bold text-amber-200">{h.day}</span>
-                <span className="font-body text-lg text-amber-100">{h.hours}</span>
+          {/* Principles */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {siteConfig.culture.principles.map((principle, index) => (
+              <div key={index} className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-2xl border-l-4 border-red-500">
+                <h3 className="text-2xl font-bold text-red-700 mb-3">{principle.name}</h3>
+                <p className="text-gray-700 leading-relaxed">{principle.description}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-center mt-8 font-body text-amber-300 italic">Réservation conseillée pour les groupes</p>
+          {/* Fun Facts */}
+          <div className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 p-12 rounded-3xl">
+            <h3 className="text-3xl font-black text-white text-center mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Le Saviez-Vous ? 🇰🇷
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {siteConfig.culture.funFacts.map((fact, index) => (
+                <div key={index} className="bg-white/90 p-6 rounded-xl">
+                  <Sparkles className="w-6 h-6 text-orange-500 mb-3" />
+                  <p className="text-gray-800 font-medium">{fact}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="py-24 parchment">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <div className="bg-amber-100 border-4 border-amber-800 rounded-lg p-12 shadow-2xl">
-            <MapPin className="w-16 h-16 mx-auto mb-6 text-amber-800" />
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold mb-8 text-amber-900">
-              Venez nous rendre visite
+      {/* Contact & Localisation */}
+      <section className="py-20 px-4 bg-gray-900 text-white" id="contact">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4 px-6 py-2 bg-red-600 rounded-full">
+              <span className="text-white font-bold">CONTACT</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Venez Nous Voir !
             </h2>
+          </div>
 
-            <div className="space-y-6 mb-12">
-              <div>
-                <p className="font-serif text-2xl font-bold text-amber-900 mb-2">{siteConfig.location.address}</p>
-                <p className="font-body text-xl text-amber-800">{siteConfig.location.postalCode} {siteConfig.location.city}</p>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Adresse */}
+            <div className="space-y-8">
+              <div className="bg-gradient-to-br from-red-600 to-orange-600 p-8 rounded-2xl">
+                <MapPin className="w-12 h-12 text-white mb-6" />
+                <h3 className="text-3xl font-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  Adresse
+                </h3>
+                <p className="text-xl leading-relaxed mb-4">
+                  {siteConfig.contact.address.street}<br />
+                  {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}
+                </p>
+                <p className="text-white/80 text-sm">
+                  {siteConfig.contact.address.details}
+                </p>
               </div>
-              <p className="font-body text-lg text-amber-700 italic">{siteConfig.location.description}</p>
+
+              {/* Nearby */}
+              <div className="bg-white/10 p-8 rounded-2xl">
+                <h3 className="text-2xl font-bold mb-6">À Proximité</h3>
+                <ul className="space-y-3">
+                  {siteConfig.location.nearby.map((item, index) => (
+                    <li key={index} className="flex items-center gap-3 text-white/80">
+                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <a
-                href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
-                className="flex items-center gap-3 px-10 py-5 bg-amber-700 text-white rounded-lg font-bold text-lg hover:bg-amber-800 transition uppercase tracking-wider shadow-xl justify-center"
-              >
-                <Phone className="w-6 h-6" />
-                {siteConfig.contact.phone}
-              </a>
-              <a
-                href={`https://www.instagram.com/${siteConfig.contact.instagram.replace('@', '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 px-10 py-5 border-2 border-amber-800 text-amber-900 rounded-lg font-bold text-lg hover:bg-amber-800 hover:text-white transition uppercase tracking-wider justify-center"
-              >
-                <Instagram className="w-6 h-6" />
-                Instagram
-              </a>
+            {/* Map */}
+            <div className="bg-gray-800 rounded-2xl overflow-hidden h-96 lg:h-full">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2664.5!2d-2.7608!3d48.5138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480e2ba5a6d8e8b9%3A0x5f8e8e8e8e8e8e8e!2s29%20Rue%20Charbonnerie%2C%2022000%20Saint-Brieuc!5e0!3m2!1sfr!2sfr!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localisation Le Griffon Glouton"
+              ></iframe>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-stone-900 text-amber-200 border-t-4 border-amber-700">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-center md:text-left">
-              <h3 className="font-serif text-2xl font-bold mb-2">{siteConfig.name}</h3>
-              <p className="font-body text-amber-400">{siteConfig.tagline}</p>
-              <p className="text-sm text-amber-500 mt-2">Inaugurée le 25 novembre 2023</p>
-            </div>
-            <div className="text-center md:text-right">
-              <p className="text-sm text-amber-400">© {new Date().getFullYear()} {siteConfig.name}</p>
-              <p className="text-xs text-amber-500 mt-1">{siteConfig.location.city}</p>
-            </div>
+      <footer className="bg-black py-16 px-4 text-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h3 className="text-5xl font-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            LE GRIFFON GLOUTON
+          </h3>
+          <div className="w-20 h-1 bg-red-500 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-400 mb-8">
+            Street Food Coréenne • Saint-Brieuc
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a
+              href="#menu"
+              className="inline-flex items-center gap-3 bg-red-600 hover:bg-red-700 text-white px-8 py-4 font-bold transition-colors rounded-full"
+            >
+              <Soup className="w-5 h-5" />
+              Voir le Menu
+            </a>
+          </div>
+
+          <div className="text-gray-500 text-sm">
+            <p className="mb-2">
+              {siteConfig.contact.address.street}, {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}
+            </p>
+            <p>
+              © {new Date().getFullYear()} Le Griffon Glouton - Tous droits réservés
+            </p>
           </div>
         </div>
       </footer>
     </div>
   );
-}
+};
+
+export default App;
