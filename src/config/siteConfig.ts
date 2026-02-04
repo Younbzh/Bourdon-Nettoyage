@@ -1,275 +1,135 @@
 export const siteConfig = {
-  // Informations générales
-  name: "Le Griffon Glouton",
-  tagline: "Street Food Coréenne à Saint-Brieuc",
-  slogan: "Apporter un peu de Corée à Saint-Brieuc",
-  description: "Restaurant de street food coréenne authentique au cœur de Saint-Brieuc. Découvrez nos spécialités maison : kimchi fait maison, bibimbap, bulgogi, tteokbokki et bien plus encore !",
+  name: "CrossFit Galian",
+  tagline: "La première box CrossFit de Guingamp",
+  slogan: "Forge ton corps. Libère ton guerrier.",
+  description: "CrossFit Galian ouvre ses portes au printemps 2025 à Guingamp. Première salle dédiée au CrossFit sur le territoire, encadrée par des coachs passionnés pour tous les niveaux.",
   
-  // Entreprise
-  company: {
-    owners: "Pauline et Nicolas Ravelet",
-    team: ["Pauline Ravelet (39 ans)", "Nicolas Ravelet (40 ans)", "Djébril Chraa"],
-    openingDate: "27 janvier 2025",
-    concept: "Street food coréenne authentique et conviviale"
-  },
-  
-  // Contact & Localisation
   contact: {
-    address: {
-      street: "29 Rue Charbonnerie",
-      city: "Saint-Brieuc",
-      postalCode: "22000",
-      region: "Côtes-d'Armor, Bretagne",
-      details: "À l'intersection des rues Jouallan, Saint-Guillaume et Charbonnerie",
-      coordinates: {
-        lat: 48.5138,
-        lng: -2.7608
-      }
+    address: "29 Boulevard de la Marne",
+    city: "Guingamp",
+    postalCode: "22200",
+    fullAddress: "29 Boulevard de la Marne, 22200 Guingamp",
+    phone: null, // À compléter
+    email: null, // À compléter
+    coordinates: {
+      lat: 48.5623,
+      lng: -3.1502
     }
   },
-  
-  // Note Google
-  rating: {
-    score: 5.0,
-    reviews: 1,
-    platform: "Google"
+
+  opening: {
+    date: "Avril 2025",
+    status: "Ouverture prochaine",
+    message: "Les inscriptions ouvriront bientôt. Rejoignez l'aventure dès le début !"
   },
-  
-  // Notre Histoire
+
   about: {
-    story: "Pauline et Nicolas Ravelet ont ouvert Le Griffon Glouton le 27 janvier 2025, un restaurant de street food coréenne au cœur de Saint-Brieuc. Passionnés par la cuisine coréenne et ses saveurs uniques, ils ont voulu partager leur amour pour cette gastronomie avec les Briochins. Épaulés par Djébril Chraa, ils proposent une cuisine authentique et conviviale dans une ambiance chaleureuse.",
-    vision: "Notre mission : apporter un peu de Corée à Saint-Brieuc et faire découvrir les vraies saveurs de la street food coréenne, avec des produits frais et du kimchi fait maison.",
+    story: "CrossFit Galian est né de la passion de Kevin Le Bars, 31 ans, ancien livreur de cuisines et athlète CrossFit confirmé. Après avoir pratiqué pendant des années à Saint-Brieuc et Lannion, Kevin réalise son rêve : ouvrir la première box CrossFit dédiée à Guingamp.",
+    mission: "Rendre le CrossFit accessible à tous les Guingampais, quel que soit leur niveau. Une communauté soudée, des entraînements intenses, des résultats concrets.",
     values: [
-      "Authenticité coréenne",
-      "Produits frais",
-      "Fait maison",
-      "Convivialité",
-      "Passion de la cuisine",
-      "Accueil chaleureux"
-    ]
+      "Communauté bretonne forte",
+      "Coaching de qualité et bienveillant",
+      "Dépassement de soi",
+      "Accessibilité pour tous les niveaux"
+    ],
+    founder: {
+      name: "Kevin Le Bars",
+      age: 31,
+      background: "Athlète CrossFit, ancien pratiquant au CrossFit OB22",
+      vision: "Créer un espace où chaque Guingampais peut découvrir sa force intérieure"
+    }
   },
-  
-  // Spécialités Coréennes
-  specialties: {
-    signature: {
-      name: "Kimchi Maison",
-      description: "Notre fierté ! Kimchi traditionnel fermenté fait maison, préparé selon les recettes authentiques coréennes.",
-      icon: "🥬"
+
+  services: {
+    main: [
+      {
+        title: "WOD Collectifs",
+        description: "Entraînements guidés en groupe, intensité modulable selon ton niveau",
+        icon: "users"
+      },
+      {
+        title: "Coaching Personnalisé",
+        description: "Suivi individuel pour progresser rapidement et en toute sécurité",
+        icon: "target"
+      },
+      {
+        title: "Open Gym",
+        description: "Accès libre à la salle pour t'entraîner à ton rythme",
+        icon: "dumbbell"
+      },
+      {
+        title: "Débutants Bienvenus",
+        description: "Programmes d'initiation adaptés, on commence tous quelque part",
+        icon: "heart"
+      }
+    ],
+    details: "Équipements complets : barres olympiques, racks, kettlebells, rameurs, assault bikes, cordes à sauter, GHD, anneaux, et bien plus."
+  },
+
+  whyCrossFit: [
+    {
+      title: "Pour Tous",
+      description: "Du débutant complet à l'athlète confirmé, chacun progresse à son rythme"
     },
-    categories: [
-      {
-        name: "Les Classiques",
-        description: "Les incontournables de la cuisine coréenne",
-        dishes: [
-          {
-            name: "Bibimbap",
-            description: "Bol de riz garni de légumes sautés, viande marinée, œuf et sauce gochujang",
-            icon: "🍚",
-            popular: true
-          },
-          {
-            name: "Bulgogi",
-            description: "Fines tranches de bœuf marinées dans une sauce sucrée-salée et grillées",
-            icon: "🥩",
-            popular: true
-          },
-          {
-            name: "Japchae",
-            description: "Nouilles de patate douce sautées avec légumes et viande, assaisonnées au sésame",
-            icon: "🍜"
-          },
-          {
-            name: "Kimchi Jjigae",
-            description: "Ragoût épicé au kimchi, tofu et viande",
-            icon: "🍲"
-          }
-        ]
-      },
-      {
-        name: "Street Food",
-        description: "L'essence de la cuisine de rue coréenne",
-        dishes: [
-          {
-            name: "Tteokbokki",
-            description: "Gâteaux de riz cylindriques dans une sauce pimentée douce-épicée",
-            icon: "🌶️",
-            popular: true
-          },
-          {
-            name: "Kimbap",
-            description: "Rouleau de riz et légumes enroulé dans une feuille d'algue",
-            icon: "🍱"
-          },
-          {
-            name: "Korean Fried Chicken",
-            description: "Poulet frit croustillant coréen avec sauce sucrée-épicée",
-            icon: "🍗"
-          },
-          {
-            name: "Mandu",
-            description: "Raviolis coréens vapeur ou frits, garnis de viande et légumes",
-            icon: "🥟"
-          }
-        ]
-      },
-      {
-        name: "Banchan",
-        description: "Accompagnements traditionnels",
-        dishes: [
-          {
-            name: "Kimchi",
-            description: "Chou fermenté épicé fait maison",
-            icon: "🥬"
-          },
-          {
-            name: "Namul",
-            description: "Légumes assaisonnés variés",
-            icon: "🥗"
-          },
-          {
-            name: "Œuf roulé coréen",
-            description: "Omelette roulée moelleuse",
-            icon: "🥚"
-          }
-        ]
-      }
-    ]
-  },
-  
-  // Ingrédients & Saveurs
-  ingredients: {
-    title: "Les Saveurs de Corée",
-    description: "Découvrez les ingrédients authentiques qui font la richesse de notre cuisine",
-    essentials: [
-      {
-        name: "Gochujang",
-        description: "Pâte de piment rouge fermentée, base de nombreuses sauces",
-        flavor: "Épicé & Umami"
-      },
-      {
-        name: "Gochugaru",
-        description: "Flocons de piment rouge coréen",
-        flavor: "Épicé"
-      },
-      {
-        name: "Doenjang",
-        description: "Pâte de soja fermentée",
-        flavor: "Salé & Umami"
-      },
-      {
-        name: "Huile de sésame",
-        description: "Huile aromatique signature",
-        flavor: "Noisette"
-      },
-      {
-        name: "Sauce soja coréenne",
-        description: "Plus douce que la japonaise",
-        flavor: "Salé & Doux"
-      },
-      {
-        name: "Ail & Gingembre",
-        description: "Aromates essentiels",
-        flavor: "Puissant"
-      }
-    ]
-  },
-  
-  // Ambiance & Expérience
-  atmosphere: {
-    style: "Street food coréen moderne",
-    vibe: "Convivial et chaleureux",
-    features: [
-      "Décoration inspirée de Séoul",
-      "Ambiance décontractée",
-      "Service rapide et souriant",
-      "Cuisine ouverte",
-      "À emporter ou sur place"
-    ],
-    experience: "Plongez dans l'ambiance des rues de Séoul ! Notre espace chaleureux vous transporte directement en Corée, avec une cuisine ouverte où vous pouvez voir nos plats préparés sous vos yeux."
-  },
-  
-  // Informations pratiques
-  practical: {
-    services: [
-      "Sur place",
-      "À emporter",
-      "Préparation rapide",
-      "Réservation conseillée",
-      "Options végétariennes"
-    ],
-    payment: "CB, Espèces, Ticket Restaurant",
-    accessibility: "Accessible PMR"
-  },
-  
-  // Culture Coréenne
-  culture: {
-    title: "La Culture Coréenne dans votre Assiette",
-    intro: "La cuisine coréenne, c'est bien plus que de la nourriture : c'est un art de vivre, un partage, une explosion de saveurs.",
-    principles: [
-      {
-        name: "Équilibre des 5 saveurs",
-        description: "Sucré, salé, amer, acide et épicé s'harmonisent dans chaque plat"
-      },
-      {
-        name: "Partage et convivialité",
-        description: "Les plats se partagent au centre de la table, comme en Corée"
-      },
-      {
-        name: "Fermentation",
-        description: "Le kimchi et les pâtes fermentées sont au cœur de la gastronomie coréenne"
-      },
-      {
-        name: "Fraîcheur",
-        description: "Des légumes croquants et des herbes fraîches à chaque repas"
-      }
-    ],
-    funFacts: [
-      "Le kimchi est inscrit au patrimoine de l'UNESCO depuis 2013",
-      "La Corée possède plus de 200 variétés de kimchi",
-      "Le bibimbap signifie littéralement 'riz mélangé'",
-      "Les Coréens utilisent des baguettes en métal"
-    ]
-  },
-  
-  // Localisation Saint-Brieuc
+    {
+      title: "Résultats Rapides",
+      description: "Force, cardio, mobilité : des progrès visibles dès les premières semaines"
+    },
+    {
+      title: "Esprit d'Équipe",
+      description: "Une communauté qui se soutient, s'encourage et transpire ensemble"
+    },
+    {
+      title: "Variété",
+      description: "Jamais le même WOD, jamais l'ennui. Toujours un nouveau défi."
+    }
+  ],
+
   location: {
-    neighborhood: "Centre-ville de Saint-Brieuc",
-    description: "Idéalement situé à l'intersection des rues Jouallan, Saint-Guillaume et Charbonnerie, Le Griffon Glouton est au cœur du centre historique de Saint-Brieuc.",
-    nearby: [
-      "Cathédrale Saint-Étienne : 5 min à pied",
-      "Place du Chai : 3 min à pied",
-      "Parking Gare : 7 min à pied",
-      "Arrêts de bus à proximité"
-    ],
-    access: "Facilement accessible à pied depuis le centre-ville et les parkings principaux."
+    context: "Situé en plein cœur de Guingamp, dans l'ancien espace Instinct Animal",
+    access: "Parking à proximité, facilement accessible en voiture ou à vélo",
+    nearby: "À quelques minutes du centre-ville"
   },
-  
-  // SEO
+
+  competitive: {
+    uniqueness: "Première et seule box CrossFit dédiée sur le secteur guingampais",
+    competitors: [
+      "CrossFit OB22 - Yffiniac (30 km)",
+      "CrossFit Kalon - Lannion (40 km)"
+    ],
+    advantage: "Enfin une salle locale pour la communauté CrossFit de Guingamp et ses alentours"
+  },
+
   seo: {
     keywords: [
-      "restaurant coréen Saint-Brieuc",
-      "street food coréenne Saint-Brieuc",
-      "Griffon Glouton",
-      "kimchi Saint-Brieuc",
-      "bibimbap Saint-Brieuc",
-      "bulgogi Bretagne",
-      "cuisine coréenne Côtes-d'Armor",
-      "tteokbokki Saint-Brieuc",
-      "restaurant asiatique Saint-Brieuc",
-      "food coréen 22000",
-      "Pauline Nicolas Ravelet",
-      "rue Charbonnerie restaurant"
+      "CrossFit Guingamp",
+      "salle CrossFit 22200",
+      "box CrossFit Côtes d'Armor",
+      "CrossFit Galian",
+      "sport Guingamp",
+      "musculation fonctionnelle Guingamp",
+      "WOD Guingamp",
+      "coaching sportif Guingamp",
+      "CrossFit Bretagne",
+      "fitness Guingamp"
     ],
+    metaDescription: "CrossFit Galian : première box CrossFit de Guingamp. Ouverture avril 2025. Coaching pro, WOD intenses, communauté motivante. Tous niveaux bienvenus. 29 bd de la Marne.",
     og: {
-      title: "Le Griffon Glouton - Street Food Coréenne à Saint-Brieuc | Kimchi Maison",
-      description: "Découvrez la vraie street food coréenne au cœur de Saint-Brieuc ! Kimchi maison, bibimbap, bulgogi, tteokbokki... Ouvert depuis janvier 2025. 29 rue Charbonnerie."
+      title: "CrossFit Galian - La première box CrossFit de Guingamp",
+      description: "Forge ton corps. Libère ton guerrier. Ouverture printemps 2025 à Guingamp.",
+      type: "website",
+      locale: "fr_FR"
     }
   },
-  
-  // Call to Action
-  cta: {
-    primary: "Venez découvrir nos saveurs !",
-    secondary: "Réservation conseillée",
-    tertiary: "Emportez la Corée chez vous"
+
+  branding: {
+    meaning: "Galian signifie 'Gaulois' en breton - l'esprit guerrier breton au cœur de notre identité",
+    colors: {
+      primary: "#0A0A0A", // Noir profond
+      secondary: "#FFB800", // Or intense
+      accent: "#E63946", // Rouge brique
+      neutral: "#F5F5F5" // Blanc cassé
+    },
+    tone: "Brut, authentique, motivant, accessible, communautaire"
   }
 };

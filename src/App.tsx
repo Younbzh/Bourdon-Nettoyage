@@ -1,369 +1,351 @@
-import React, { useState } from 'react';
-import { MapPin, Phone, Clock, Star, Sparkles, Flame, Heart, ShoppingBag, Users, ChevronDown, Soup } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { 
+  Dumbbell, 
+  Users, 
+  Target, 
+  Heart, 
+  MapPin, 
+  Mail, 
+  Phone,
+  Calendar,
+  Zap,
+  TrendingUp,
+  Award,
+  Shield,
+  Clock,
+  ChevronRight
+} from 'lucide-react';
 import { siteConfig } from './config/siteConfig';
 
-const App = () => {
+function App() {
+  const [scrolled, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const iconMap: { [key: string]: any } = {
+    users: Users,
+    target: Target,
+    dumbbell: Dumbbell,
+    heart: Heart
+  };
+
   return (
-    <div className="min-h-screen bg-neutral-50">
-      {/* Hero Section - K-Street Food Vibe */}
-      <header className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-600 via-rose-500 to-orange-500">
-        {/* Animated background pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
-          <div className="absolute top-20 right-10 w-72 h-72 bg-yellow-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
-
-        {/* Decorative elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 text-9xl">🌶️</div>
-          <div className="absolute top-1/3 right-1/4 text-8xl">🍜</div>
-          <div className="absolute bottom-1/4 left-1/3 text-7xl">🥢</div>
-          <div className="absolute top-2/3 right-1/3 text-6xl">🥬</div>
-        </div>
-
-        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          {/* Logo avec effet néon */}
-          <div className="mb-8">
-            <div className="inline-block mb-6 px-8 py-3 bg-white/20 backdrop-blur-sm rounded-full border-2 border-white/50">
-              <span className="text-white font-bold text-lg tracking-wider">NOUVEAU À SAINT-BRIEUC</span>
+    <div className="min-h-screen bg-black text-white font-sans antialiased">
+      
+      {/* Navigation */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-sm py-3 shadow-2xl' : 'bg-transparent py-5'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-yellow-500 flex items-center justify-center transform -rotate-6">
+              <Dumbbell className="w-6 h-6 text-black" strokeWidth={3} />
             </div>
-            <h1 className="text-7xl md:text-9xl font-black text-white mb-4 drop-shadow-2xl" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em' }}>
-              LE GRIFFON<br/>GLOUTON
-            </h1>
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="h-1 w-20 bg-yellow-300"></div>
-              <Flame className="w-10 h-10 text-yellow-300 animate-pulse" />
-              <div className="h-1 w-20 bg-yellow-300"></div>
-            </div>
-          </div>
-
-          {/* Tagline */}
-          <p className="text-3xl md:text-5xl font-bold text-yellow-200 mb-4 drop-shadow-lg" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            STREET FOOD CORÉENNE
-          </p>
-          
-          <p className="text-xl md:text-2xl text-white/90 mb-12 font-medium">
-            {siteConfig.slogan} 🇰🇷
-          </p>
-
-          {/* Key features badges */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <div className="px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full text-red-600 font-bold text-lg shadow-xl">
-              <span className="mr-2">🥬</span> Kimchi Maison
-            </div>
-            <div className="px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full text-red-600 font-bold text-lg shadow-xl">
-              <span className="mr-2">⚡</span> Authentique
-            </div>
-            <div className="px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full text-red-600 font-bold text-lg shadow-xl">
-              <span className="mr-2">🔥</span> Fait Maison
-            </div>
-          </div>
-
-          {/* Rating */}
-          <div className="mb-12">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full shadow-2xl">
-              <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
-              <span className="font-bold text-2xl text-gray-800">{siteConfig.rating.score}/5</span>
-              <span className="text-gray-600">• Ouvert janvier 2025</span>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#menu"
-              className="group bg-white hover:bg-yellow-300 text-red-600 px-12 py-5 font-black text-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3 rounded-full"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-            >
-              <Soup className="w-6 h-6" />
-              Découvrir le Menu
-            </a>
-            <a
-              href="#contact"
-              className="group bg-red-700 hover:bg-red-800 text-white px-12 py-5 font-black text-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3 rounded-full"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-            >
-              <MapPin className="w-6 h-6" />
-              Nous Trouver
-            </a>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-10 h-10 text-white" />
-        </div>
-      </header>
-
-      {/* Notre Histoire */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4 px-6 py-2 bg-red-100 rounded-full">
-              <span className="text-red-600 font-bold">À PROPOS</span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Notre Histoire
-            </h2>
-            <div className="w-24 h-2 bg-red-500 mx-auto mb-8"></div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Story */}
             <div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                {siteConfig.about.story}
-              </p>
-              <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl border-l-4 border-red-500">
-                <p className="text-xl font-bold text-red-700 italic mb-4">
-                  "{siteConfig.about.vision}"
-                </p>
-              </div>
-            </div>
-
-            {/* Values */}
-            <div className="grid grid-cols-2 gap-4">
-              {siteConfig.about.values.map((value, index) => (
-                <div
-                  key={index}
-                  className="bg-gradient-to-br from-red-500 to-orange-500 p-6 rounded-xl text-white text-center hover:scale-105 transition-transform duration-300 shadow-lg"
-                >
-                  <p className="font-bold">{value}</p>
-                </div>
-              ))}
+              <h1 className="text-xl sm:text-2xl font-black tracking-tight text-yellow-500 uppercase">
+                {siteConfig.name}
+              </h1>
+              <p className="text-xs text-gray-400 tracking-wider">Guingamp • Bretagne</p>
             </div>
           </div>
-
-          {/* Team */}
-          <div className="mt-16 text-center">
-            <h3 className="text-3xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              L'Équipe
-            </h3>
-            <div className="flex flex-wrap justify-center gap-6">
-              {siteConfig.company.team.map((member, index) => (
-                <div key={index} className="px-6 py-3 bg-gray-100 rounded-full text-gray-800 font-medium">
-                  <Users className="w-5 h-5 inline mr-2 text-red-500" />
-                  {member}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Spécialité Signature */}
-      <section className="py-20 px-4 bg-gradient-to-br from-yellow-50 to-orange-50">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-block mb-4 px-6 py-2 bg-yellow-200 rounded-full">
-            <span className="text-yellow-900 font-bold">NOTRE FIERTÉ</span>
-          </div>
-          <h2 className="text-6xl md:text-7xl font-black text-gray-900 mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            {siteConfig.specialties.signature.icon} {siteConfig.specialties.signature.name}
-          </h2>
-          <p className="text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed">
-            {siteConfig.specialties.signature.description}
-          </p>
           
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { icon: "🥬", text: "100% Maison", desc: "Fait chaque jour" },
-              { icon: "🌶️", text: "Authentique", desc: "Recette traditionnelle" },
-              { icon: "❤️", text: "Avec Amour", desc: "Préparé avec soin" }
-            ].map((item, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <div className="text-6xl mb-4">{item.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{item.text}</h3>
-                <p className="text-gray-600">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          <a 
+            href="#contact" 
+            className="hidden sm:flex items-center gap-2 bg-yellow-500 text-black px-6 py-3 font-bold uppercase text-sm tracking-wider hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 hover:-rotate-1 shadow-lg"
+          >
+            Rejoindre
+            <ChevronRight className="w-4 h-4" />
+          </a>
         </div>
-      </section>
+      </nav>
 
-      {/* Menu - Les Spécialités */}
-      <section className="py-20 px-4 bg-white" id="menu">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4 px-6 py-2 bg-red-100 rounded-full">
-              <span className="text-red-600 font-bold">MENU</span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Nos Spécialités Coréennes
-            </h2>
-            <div className="w-24 h-2 bg-red-500 mx-auto"></div>
-          </div>
-
-          <div className="space-y-16">
-            {siteConfig.specialties.categories.map((category, catIndex) => (
-              <div key={catIndex}>
-                <div className="mb-8">
-                  <h3 className="text-4xl font-black text-red-600 mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    {category.name}
-                  </h3>
-                  <p className="text-lg text-gray-600">{category.description}</p>
-                </div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {category.dishes.map((dish, dishIndex) => (
-                    <div
-                      key={dishIndex}
-                      className={`relative bg-gradient-to-br ${
-                        dish.popular ? 'from-red-500 to-orange-500 text-white' : 'from-gray-50 to-gray-100'
-                      } p-6 rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl group`}
-                    >
-                      {dish.popular && (
-                        <div className="absolute -top-3 -right-3 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold shadow-lg">
-                          <Sparkles className="w-4 h-4 inline mr-1" />
-                          POPULAIRE
-                        </div>
-                      )}
-                      <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                        {dish.icon}
-                      </div>
-                      <h4 className={`text-xl font-bold mb-3 ${dish.popular ? 'text-white' : 'text-gray-900'}`}>
-                        {dish.name}
-                      </h4>
-                      <p className={`text-sm leading-relaxed ${dish.popular ? 'text-white/90' : 'text-gray-600'}`}>
-                        {dish.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 184, 0, 0.1) 35px, rgba(255, 184, 0, 0.1) 70px)`
+          }}></div>
         </div>
-      </section>
 
-      {/* Les Saveurs */}
-      <section className="py-20 px-4 bg-gradient-to-br from-red-500 via-rose-500 to-orange-500 text-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4 px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full">
-              <span className="text-white font-bold">INGRÉDIENTS</span>
+        {/* Animated Yellow Accent */}
+        <div className={`absolute top-20 right-10 w-96 h-96 bg-yellow-500/20 rounded-full blur-3xl transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}></div>
+        <div className={`absolute bottom-20 left-10 w-80 h-80 bg-red-500/10 rounded-full blur-3xl transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="inline-block mb-6 px-6 py-2 bg-yellow-500/20 border-2 border-yellow-500 transform -rotate-2">
+              <p className="text-yellow-500 font-bold uppercase tracking-widest text-sm">
+                {siteConfig.opening.date} • {siteConfig.opening.status}
+              </p>
             </div>
-            <h2 className="text-5xl md:text-6xl font-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              {siteConfig.ingredients.title}
-            </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              {siteConfig.ingredients.description}
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {siteConfig.ingredients.essentials.map((ingredient, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border-2 border-white/20 hover:bg-white/20 transition-all duration-300"
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black mb-6 tracking-tighter leading-none">
+              <span className="block text-white">CROSSFIT</span>
+              <span className="block text-yellow-500 mt-2" style={{ 
+                textShadow: '4px 4px 0px rgba(0,0,0,0.8)' 
+              }}>GALIAN</span>
+            </h1>
+
+            <div className="max-w-3xl mx-auto mb-10">
+              <p className="text-xl sm:text-2xl font-bold text-gray-300 mb-4 uppercase tracking-wide">
+                {siteConfig.slogan}
+              </p>
+              <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
+                {siteConfig.tagline} – {siteConfig.description}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a 
+                href="#about" 
+                className="w-full sm:w-auto bg-yellow-500 text-black px-10 py-5 font-black uppercase text-lg tracking-wider hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 hover:-rotate-2 shadow-2xl"
               >
-                <h3 className="text-2xl font-bold mb-3">{ingredient.name}</h3>
-                <p className="text-white/80 mb-3">{ingredient.description}</p>
-                <div className="inline-block px-4 py-2 bg-yellow-400 text-gray-900 rounded-full text-sm font-bold">
-                  {ingredient.flavor}
-                </div>
-              </div>
-            ))}
+                Découvrir
+              </a>
+              <a 
+                href="#contact" 
+                className="w-full sm:w-auto border-4 border-white text-white px-10 py-5 font-black uppercase text-lg tracking-wider hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 hover:rotate-2"
+              >
+                Contactez-nous
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-8 h-12 border-2 border-yellow-500 rounded-full flex justify-center pt-2">
+            <div className="w-1 h-3 bg-yellow-500 rounded-full"></div>
           </div>
         </div>
       </section>
 
-      {/* Culture Coréenne */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4 px-6 py-2 bg-orange-100 rounded-full">
-              <span className="text-orange-600 font-bold">CULTURE</span>
+      {/* About Section */}
+      <section id="about" className="py-24 bg-zinc-950 relative">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(rgba(255, 184, 0, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 184, 0, 0.1) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-block mb-4 px-4 py-2 bg-yellow-500 text-black font-black uppercase text-sm tracking-widest transform -rotate-2">
+                Notre Histoire
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-black mb-6 leading-tight">
+                Le <span className="text-yellow-500">Guerrier Gaulois</span> au Cœur
+              </h2>
+              <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
+                <p className="border-l-4 border-yellow-500 pl-6 py-2">
+                  <strong className="text-yellow-500">{siteConfig.branding.meaning}</strong>
+                </p>
+                <p>
+                  {siteConfig.about.story}
+                </p>
+                <p className="font-semibold text-white">
+                  {siteConfig.about.mission}
+                </p>
+              </div>
+
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {siteConfig.about.values.map((value, idx) => (
+                  <div key={idx} className="flex items-start gap-3 bg-black/50 p-4 border-l-2 border-yellow-500">
+                    <Shield className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <p className="font-bold text-sm uppercase tracking-wide">{value}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              {siteConfig.culture.title}
+
+            <div className="relative">
+              <div className="bg-zinc-900 border-4 border-yellow-500 p-8 transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-yellow-500 flex items-center justify-center">
+                    <Award className="w-10 h-10 text-black" strokeWidth={3} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-black text-yellow-500">{siteConfig.about.founder.name}</h3>
+                    <p className="text-gray-400 font-semibold">Fondateur & Coach</p>
+                  </div>
+                </div>
+                <div className="space-y-3 text-gray-300">
+                  <p className="flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-yellow-500" />
+                    <span>{siteConfig.about.founder.age} ans, athlète CrossFit confirmé</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5 text-yellow-500" />
+                    <span>{siteConfig.about.founder.background}</span>
+                  </p>
+                  <p className="border-t-2 border-yellow-500/30 pt-4 mt-4 italic text-white font-medium">
+                    "{siteConfig.about.founder.vision}"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 bg-black relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black mb-4 uppercase">
+              Nos <span className="text-yellow-500">Entraînements</span>
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              {siteConfig.culture.intro}
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              {siteConfig.services.details}
             </p>
           </div>
 
-          {/* Principles */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {siteConfig.culture.principles.map((principle, index) => (
-              <div key={index} className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-2xl border-l-4 border-red-500">
-                <h3 className="text-2xl font-bold text-red-700 mb-3">{principle.name}</h3>
-                <p className="text-gray-700 leading-relaxed">{principle.description}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {siteConfig.services.main.map((service, idx) => {
+              const Icon = iconMap[service.icon];
+              return (
+                <div 
+                  key={idx} 
+                  className="group bg-zinc-950 border-2 border-zinc-800 p-8 hover:border-yellow-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-yellow-500/20"
+                  style={{ animationDelay: `${idx * 100}ms` }}
+                >
+                  <div className="mb-6">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-500/10 border-2 border-yellow-500 transform rotate-6 group-hover:rotate-12 transition-transform duration-300">
+                      <Icon className="w-8 h-8 text-yellow-500" strokeWidth={2.5} />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-black mb-3 uppercase tracking-wide group-hover:text-yellow-500 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Why CrossFit Section */}
+      <section className="py-24 bg-zinc-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black mb-6 uppercase">
+              Pourquoi Le <span className="text-yellow-500">CrossFit</span> ?
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              Le CrossFit n'est pas qu'un sport. C'est un style de vie qui te transforme physiquement et mentalement.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-8">
+            {siteConfig.whyCrossFit.map((reason, idx) => (
+              <div 
+                key={idx} 
+                className="bg-black border-l-4 border-yellow-500 p-8 hover:bg-zinc-900 transition-all duration-300"
+              >
+                <h3 className="text-2xl font-black mb-3 text-yellow-500 uppercase">
+                  {reason.title}
+                </h3>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  {reason.description}
+                </p>
               </div>
             ))}
           </div>
 
-          {/* Fun Facts */}
-          <div className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 p-12 rounded-3xl">
-            <h3 className="text-3xl font-black text-white text-center mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Le Saviez-Vous ? 🇰🇷
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {siteConfig.culture.funFacts.map((fact, index) => (
-                <div key={index} className="bg-white/90 p-6 rounded-xl">
-                  <Sparkles className="w-6 h-6 text-orange-500 mb-3" />
-                  <p className="text-gray-800 font-medium">{fact}</p>
-                </div>
-              ))}
+          <div className="mt-16 text-center">
+            <div className="inline-block bg-yellow-500 text-black px-8 py-6 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+              <p className="text-2xl font-black uppercase">
+                {siteConfig.competitive.uniqueness}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact & Localisation */}
-      <section className="py-20 px-4 bg-gray-900 text-white" id="contact">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4 px-6 py-2 bg-red-600 rounded-full">
-              <span className="text-white font-bold">CONTACT</span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Venez Nous Voir !
-            </h2>
-          </div>
-
+      {/* Location & Contact Section */}
+      <section id="contact" className="py-24 bg-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Adresse */}
-            <div className="space-y-8">
-              <div className="bg-gradient-to-br from-red-600 to-orange-600 p-8 rounded-2xl">
-                <MapPin className="w-12 h-12 text-white mb-6" />
-                <h3 className="text-3xl font-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  Adresse
-                </h3>
-                <p className="text-xl leading-relaxed mb-4">
-                  {siteConfig.contact.address.street}<br />
-                  {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}
-                </p>
-                <p className="text-white/80 text-sm">
-                  {siteConfig.contact.address.details}
-                </p>
+            {/* Contact Info */}
+            <div>
+              <div className="inline-block mb-4 px-4 py-2 bg-yellow-500 text-black font-black uppercase text-sm tracking-widest">
+                Contact
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-black mb-8 leading-tight">
+                Prêt à Commencer<br />Ton <span className="text-yellow-500">Aventure</span> ?
+              </h2>
+
+              <div className="space-y-6 mb-10">
+                <div className="flex items-start gap-4 bg-zinc-950 p-6 border-l-4 border-yellow-500">
+                  <MapPin className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" strokeWidth={2.5} />
+                  <div>
+                    <p className="font-bold text-lg mb-1">Adresse</p>
+                    <p className="text-gray-300">{siteConfig.contact.fullAddress}</p>
+                    <p className="text-sm text-gray-500 mt-2">{siteConfig.location.context}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 bg-zinc-950 p-6 border-l-4 border-yellow-500">
+                  <Calendar className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" strokeWidth={2.5} />
+                  <div>
+                    <p className="font-bold text-lg mb-1">Ouverture</p>
+                    <p className="text-gray-300">{siteConfig.opening.date}</p>
+                    <p className="text-sm text-yellow-500 mt-2 font-semibold">{siteConfig.opening.message}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 bg-zinc-950 p-6 border-l-4 border-yellow-500">
+                  <Phone className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" strokeWidth={2.5} />
+                  <div>
+                    <p className="font-bold text-lg mb-1">Contact</p>
+                    <p className="text-gray-400 text-sm">Coordonnées disponibles prochainement</p>
+                  </div>
+                </div>
               </div>
 
-              {/* Nearby */}
-              <div className="bg-white/10 p-8 rounded-2xl">
-                <h3 className="text-2xl font-bold mb-6">À Proximité</h3>
-                <ul className="space-y-3">
-                  {siteConfig.location.nearby.map((item, index) => (
-                    <li key={index} className="flex items-center gap-3 text-white/80">
-                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      {item}
+              <div className="bg-yellow-500 text-black p-8 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+                <h3 className="text-2xl font-black mb-4 uppercase">Info Concurrence</h3>
+                <p className="font-semibold mb-3">Plus proches concurrents :</p>
+                <ul className="space-y-2 text-sm">
+                  {siteConfig.competitive.competitors.map((comp, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-black"></div>
+                      <span>{comp}</span>
                     </li>
                   ))}
                 </ul>
+                <p className="mt-4 font-bold text-base">
+                  → {siteConfig.competitive.advantage}
+                </p>
               </div>
             </div>
 
             {/* Map */}
-            <div className="bg-gray-800 rounded-2xl overflow-hidden h-96 lg:h-full">
+            <div className="relative h-[500px] lg:h-full border-4 border-yellow-500 transform rotate-1 hover:rotate-0 transition-transform duration-300">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2664.5!2d-2.7608!3d48.5138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480e2ba5a6d8e8b9%3A0x5f8e8e8e8e8e8e8e!2s29%20Rue%20Charbonnerie%2C%2022000%20Saint-Brieuc!5e0!3m2!1sfr!2sfr!4v1234567890"
+                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.8!2d${siteConfig.contact.coordinates.lng}!3d${siteConfig.contact.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDMzJzQ0LjMiTiAzwrAwOScwMC43Ilc!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localisation Le Griffon Glouton"
+                title="CrossFit Galian - Localisation"
+                className="grayscale hover:grayscale-0 transition-all duration-500"
               ></iframe>
             </div>
           </div>
@@ -371,38 +353,40 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-16 px-4 text-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h3 className="text-5xl font-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            LE GRIFFON GLOUTON
-          </h3>
-          <div className="w-20 h-1 bg-red-500 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-400 mb-8">
-            Street Food Coréenne • Saint-Brieuc
-          </p>
+      <footer className="bg-zinc-950 border-t-4 border-yellow-500 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-yellow-500 flex items-center justify-center transform -rotate-6">
+                <Dumbbell className="w-7 h-7 text-black" strokeWidth={3} />
+              </div>
+              <div>
+                <p className="text-2xl font-black text-yellow-500 uppercase tracking-tight">
+                  {siteConfig.name}
+                </p>
+                <p className="text-sm text-gray-500">Guingamp • Côtes d'Armor • Bretagne</p>
+              </div>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a
-              href="#menu"
-              className="inline-flex items-center gap-3 bg-red-600 hover:bg-red-700 text-white px-8 py-4 font-bold transition-colors rounded-full"
-            >
-              <Soup className="w-5 h-5" />
-              Voir le Menu
-            </a>
+            <div className="text-center md:text-right">
+              <p className="text-gray-400 text-sm mb-2">
+                © 2025 CrossFit Galian. Tous droits réservés.
+              </p>
+              <p className="text-xs text-gray-600">
+                Site créé par <span className="text-yellow-500 font-semibold">Avalon Stratège</span>
+              </p>
+            </div>
           </div>
 
-          <div className="text-gray-500 text-sm">
-            <p className="mb-2">
-              {siteConfig.contact.address.street}, {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}
-            </p>
-            <p>
-              © {new Date().getFullYear()} Le Griffon Glouton - Tous droits réservés
+          <div className="mt-8 pt-8 border-t border-zinc-800 text-center">
+            <p className="text-xs text-gray-600 italic">
+              CrossFit® est une marque déposée de CrossFit, LLC. CrossFit Galian n'est pas affilié à CrossFit, LLC.
             </p>
           </div>
         </div>
       </footer>
     </div>
   );
-};
+}
 
 export default App;
