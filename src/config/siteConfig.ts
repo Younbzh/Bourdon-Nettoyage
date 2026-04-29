@@ -1,135 +1,85 @@
 export const siteConfig = {
-  name: "CrossFit Galian",
-  tagline: "La première box CrossFit de Guingamp",
-  slogan: "Forge ton corps. Libère ton guerrier.",
-  description: "CrossFit Galian ouvre ses portes au printemps 2025 à Guingamp. Première salle dédiée au CrossFit sur le territoire, encadrée par des coachs passionnés pour tous les niveaux.",
-  
+  name: "Arrosé",
+  fullName: "Arrosé – La Cave Fleurie",
+  tagline: "Fleuriste & caviste à Trébeurden",
+  slogan: "Deux amis, deux univers, un seul endroit.",
+  description: "Erell et Tanguy, deux amis trégorrois de 28 ans, ouvrent ensemble leur boutique à Trébeurden : fleurs et vins dans un même espace, rue des Plages.",
+
   contact: {
-    address: "29 Boulevard de la Marne",
-    city: "Guingamp",
-    postalCode: "22200",
-    fullAddress: "29 Boulevard de la Marne, 22200 Guingamp",
-    phone: null, // À compléter
-    email: null, // À compléter
-    coordinates: {
-      lat: 48.5623,
-      lng: -3.1502
-    }
+    address: "31c rue des Plages",
+    city: "Trébeurden",
+    postalCode: "22560",
+    fullAddress: "31c rue des Plages, 22560 Trébeurden",
+    instagram: "https://www.instagram.com/arrose.lacavefleurie/",
+    instagramHandle: "@arrose.lacavefleurie",
   },
 
   opening: {
-    date: "Avril 2025",
+    date: "Mi-mai 2025",
     status: "Ouverture prochaine",
-    message: "Les inscriptions ouvriront bientôt. Rejoignez l'aventure dès le début !"
+    message: "On s'y retrouve bientôt !",
   },
+
+  founders: [
+    {
+      name: "Erell",
+      role: "Fleuriste",
+    },
+    {
+      name: "Tanguy",
+      role: "Caviste",
+    },
+  ],
 
   about: {
-    story: "CrossFit Galian est né de la passion de Kevin Le Bars, 31 ans, ancien livreur de cuisines et athlète CrossFit confirmé. Après avoir pratiqué pendant des années à Saint-Brieuc et Lannion, Kevin réalise son rêve : ouvrir la première box CrossFit dédiée à Guingamp.",
-    mission: "Rendre le CrossFit accessible à tous les Guingampais, quel que soit leur niveau. Une communauté soudée, des entraînements intenses, des résultats concrets.",
-    values: [
-      "Communauté bretonne forte",
-      "Coaching de qualité et bienveillant",
-      "Dépassement de soi",
-      "Accessibilité pour tous les niveaux"
-    ],
-    founder: {
-      name: "Kevin Le Bars",
-      age: 31,
-      background: "Athlète CrossFit, ancien pratiquant au CrossFit OB22",
-      vision: "Créer un espace où chaque Guingampais peut découvrir sa force intérieure"
-    }
+    story:
+      "Deux copains trégorrois. Après moult cafés en terrasse, Erell et Tanguy ont décidé de mêler leurs deux passions dans un même local commercial, rue des Plages à Trébeurden.",
+    concept:
+      "Une fleuriste et un caviste sous le même toit — parce que les fleurs et le vin parlent la même langue, celle des belles occasions.",
   },
 
-  services: {
-    main: [
-      {
-        title: "WOD Collectifs",
-        description: "Entraînements guidés en groupe, intensité modulable selon ton niveau",
-        icon: "users"
-      },
-      {
-        title: "Coaching Personnalisé",
-        description: "Suivi individuel pour progresser rapidement et en toute sécurité",
-        icon: "target"
-      },
-      {
-        title: "Open Gym",
-        description: "Accès libre à la salle pour t'entraîner à ton rythme",
-        icon: "dumbbell"
-      },
-      {
-        title: "Débutants Bienvenus",
-        description: "Programmes d'initiation adaptés, on commence tous quelque part",
-        icon: "heart"
-      }
-    ],
-    details: "Équipements complets : barres olympiques, racks, kettlebells, rameurs, assault bikes, cordes à sauter, GHD, anneaux, et bien plus."
-  },
-
-  whyCrossFit: [
+  activities: [
     {
-      title: "Pour Tous",
-      description: "Du débutant complet à l'athlète confirmé, chacun progresse à son rythme"
+      name: "La Fleuristerie",
+      tagline: "Bouquets, compositions, plantes selon les saisons.",
+      owner: "Erell",
+      icon: "flower",
     },
     {
-      title: "Résultats Rapides",
-      description: "Force, cardio, mobilité : des progrès visibles dès les premières semaines"
+      name: "La Cave",
+      tagline: "Vins sélectionnés avec soin, conseils personnalisés.",
+      owner: "Tanguy",
+      icon: "wine",
     },
-    {
-      title: "Esprit d'Équipe",
-      description: "Une communauté qui se soutient, s'encourage et transpire ensemble"
-    },
-    {
-      title: "Variété",
-      description: "Jamais le même WOD, jamais l'ennui. Toujours un nouveau défi."
-    }
   ],
 
   location: {
-    context: "Situé en plein cœur de Guingamp, dans l'ancien espace Instinct Animal",
-    access: "Parking à proximité, facilement accessible en voiture ou à vélo",
-    nearby: "À quelques minutes du centre-ville"
-  },
-
-  competitive: {
-    uniqueness: "Première et seule box CrossFit dédiée sur le secteur guingampais",
-    competitors: [
-      "CrossFit OB22 - Yffiniac (30 km)",
-      "CrossFit Kalon - Lannion (40 km)"
-    ],
-    advantage: "Enfin une salle locale pour la communauté CrossFit de Guingamp et ses alentours"
+    detail: "Jouxtant la pharmacie, rue des Plages",
+    region: "Trégor · Côtes-d'Armor · Bretagne",
   },
 
   seo: {
     keywords: [
-      "CrossFit Guingamp",
-      "salle CrossFit 22200",
-      "box CrossFit Côtes d'Armor",
-      "CrossFit Galian",
-      "sport Guingamp",
-      "musculation fonctionnelle Guingamp",
-      "WOD Guingamp",
-      "coaching sportif Guingamp",
-      "CrossFit Bretagne",
-      "fitness Guingamp"
+      "fleuriste Trébeurden",
+      "cave à vin Trébeurden",
+      "Arrosé Trébeurden",
+      "fleurs et vins Côtes-d'Armor",
+      "boutique Trébeurden",
+      "caviste Trégor",
+      "fleuriste 22560",
+      "La Cave Fleurie Trébeurden",
     ],
-    metaDescription: "CrossFit Galian : première box CrossFit de Guingamp. Ouverture avril 2025. Coaching pro, WOD intenses, communauté motivante. Tous niveaux bienvenus. 29 bd de la Marne.",
-    og: {
-      title: "CrossFit Galian - La première box CrossFit de Guingamp",
-      description: "Forge ton corps. Libère ton guerrier. Ouverture printemps 2025 à Guingamp.",
-      type: "website",
-      locale: "fr_FR"
-    }
+    metaDescription:
+      "Arrosé – La Cave Fleurie : fleuriste et caviste à Trébeurden. Erell et Tanguy vous accueillent rue des Plages. Ouverture mi-mai 2025.",
   },
 
   branding: {
-    meaning: "Galian signifie 'Gaulois' en breton - l'esprit guerrier breton au cœur de notre identité",
     colors: {
-      primary: "#0A0A0A", // Noir profond
-      secondary: "#FFB800", // Or intense
-      accent: "#E63946", // Rouge brique
-      neutral: "#F5F5F5" // Blanc cassé
+      primary: "#7D1818",
+      cream: "#F2E4C8",
+      background: "#FAF6EF",
+      text: "#2C1810",
+      textMid: "#5C3828",
     },
-    tone: "Brut, authentique, motivant, accessible, communautaire"
-  }
+  },
 };
