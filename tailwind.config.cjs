@@ -4,15 +4,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['"Playfair Display"', 'Georgia', 'serif'],
-        body: ['Lato', 'system-ui', 'sans-serif'],
+        heading: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        burgundy: '#7D1818',
-        cream: '#F2E4C8',
-        'warm-white': '#FAF6EF',
-        'warm-dark': '#2C1810',
-        'warm-mid': '#5C3828',
+        maple:      '#B8232A',
+        parchment:  '#EDE4C4',
+        'off-white': '#F6F2EB',
+        bark:       '#1A1612',
+        earth:      '#5C3D22',
+        moss:       '#4A5E35',
+        stone:      '#9E9188',
       },
     },
   },
