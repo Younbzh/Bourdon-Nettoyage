@@ -8,17 +8,17 @@ function Navbar() {
         <div className="glass flex items-center justify-between px-5 py-3">
           <div>
             <div className="text-[10px] uppercase tracking-[0.22em] text-neutral-300/80">
-              Club privé
+              Pépiniériste
             </div>
             <div className="text-base font-semibold text-white">
-              {siteConfig.clubName}
+              {siteConfig.name}
             </div>
           </div>
 
           <nav className="hidden md:flex items-center gap-6">
             <NavLink to="/" className="hover:text-[#E6D39A] transition">Accueil</NavLink>
-            <NavLink to="/infos" className="hover:text-[#E6D39A] transition">Infos</NavLink>
-            <NavLink to="/tarifs" className="hover:text-[#E6D39A] transition">Tarifs</NavLink>
+            <NavLink to="/infos" className="hover:text-[#E6D39A] transition">Ma démarche</NavLink>
+            <NavLink to="/tarifs" className="hover:text-[#E6D39A] transition">Mes arbres</NavLink>
             <NavLink to="/contact" className="hover:text-[#E6D39A] transition">Contact</NavLink>
           </nav>
         </div>

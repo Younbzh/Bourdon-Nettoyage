@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Pépinière à Hénansal, Côtes-d'Armor",
   slogan: "De la graine à la vente, depuis les serres bretonnes.",
   description:
-    "Victor Diogo cultive 200 espèces d'érables du Japon à Hénansal, en Côtes-d'Armor. Passionné depuis un voyage au Japon, il propose aussi ginkgo, sassafras et chênes, en circuit fermé.",
+    "Je cultive plus de 200 espèces d'érables du Japon à Hénansal, en Côtes-d'Armor. Depuis un voyage au Japon qui a tout changé, je propose aussi ginkgo, sassafras et chênes, en circuit fermé.",
 
   contact: {
     address: "Hénansal",
@@ -18,7 +18,7 @@ export const siteConfig = {
   opening: {
     date: "Janvier 2026",
     status: "Installé à Hénansal",
-    message: "Pépinière ouverte — contactez Victor pour visiter.",
+    message: "Je suis installé à Hénansal depuis janvier 2026 — contactez-moi pour visiter.",
   },
 
   founder: {
@@ -26,14 +26,14 @@ export const siteConfig = {
     age: 36,
     role: "Pépiniériste",
     shortBio:
-      "Ancien ingénieur logiciel, reconverti par passion pour les érables du Japon — il cultive depuis cinq ans ses arbres en Bretagne, du sol à la vente.",
+      "Ancien ingénieur logiciel, reconverti par passion pour les érables du Japon — je cultive depuis cinq ans mes arbres en Bretagne, du sol à la vente.",
   },
 
   about: {
     concept:
       "Depuis la graine jusqu'à la vente, dans le doux climat breton.",
     story:
-      "Ingénieur en qualité logiciel originaire des Yvelines, Victor est tombé sous le charme des érables lors d'un voyage au Japon. Il a tout quitté pour apprendre son métier, d'abord en pépinière, puis à l'arboretum de Versailles, avant de s'installer à Hénansal en janvier 2026.",
+      "Ingénieur en qualité logiciel originaire des Yvelines, je suis tombé sous le charme des érables lors d'un voyage au Japon. J'ai tout quitté pour apprendre mon métier, d'abord en pépinière, puis à l'arboretum de Versailles, avant de m'installer à Hénansal en janvier 2026.",
   },
 
   essences: [
@@ -41,7 +41,7 @@ export const siteConfig = {
       name: "Érables du Japon",
       latin: "Acer palmatum",
       description:
-        "Plus de 200 espèces soigneusement sélectionnées pour leurs formes, couleurs et comportements saisonniers.",
+        "Plus de 200 espèces que j'ai sélectionnées pour leurs formes, couleurs et comportements saisonniers.",
       icon: "leaf",
     },
     {
@@ -62,7 +62,7 @@ export const siteConfig = {
       name: "Chênes",
       latin: "Quercus sp.",
       description:
-        "Arbres majestueux pour jardin, sélectionnés pour leur vigueur et leur longévité.",
+        "Des arbres majestueux que je sélectionne pour leur vigueur et leur longévité.",
       icon: "tree",
     },
   ],
@@ -71,19 +71,19 @@ export const siteConfig = {
     {
       title: "Eau de pluie",
       description:
-        "L'irrigation se fait entièrement à partir des eaux récupérées sur les serres — aucun recours au réseau.",
+        "J'irrigue entièrement à partir des eaux récupérées sur les serres — aucun recours au réseau.",
       icon: "droplets",
     },
     {
       title: "Zéro phytosanitaire",
       description:
-        "Les serres permettent une culture saine : presque aucun produit chimique utilisé.",
+        "Mes serres permettent une culture saine : presque aucun produit chimique.",
       icon: "leaf",
     },
     {
       title: "Circuit fermé",
       description:
-        "De la sélection des graines à la vente, tout est maîtrisé sur place, à Hénansal.",
+        "De la sélection des graines à la vente, je maîtrise tout sur place, à Hénansal.",
       icon: "rotate",
     },
     {
@@ -106,6 +106,9 @@ export const siteConfig = {
     detail: "Hénansal, commune rurale entre Lamballe et Saint-Brieuc",
     region: "Côtes-d'Armor · Bretagne",
   },
+
+  disclaimer:
+    "© 2026 Érables du Japon · Victor Diogo — Pépinière à Hénansal, Côtes-d'Armor. Toutes les plantes sont cultivées sur place.",
 
   seo: {
     keywords: [

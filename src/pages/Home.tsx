@@ -12,56 +12,47 @@ function Home() {
       <TrustSignals />
 
       <Section
-        eyebrow="L’expérience"
-        title={`Ce que propose réellement ${siteConfig.clubName}`}
-        description="Cette section permet au visiteur de comprendre, en un coup d’œil, la nature de l’expérience proposée : détente, sociabilité, sensualité. Le ton est volontairement posé, moderne et rassurant, pour refléter une gestion sérieuse et élégante."
+        eyebrow="Mon parcours"
+        title="De l'ingénierie à la terre"
+        description="J'étais ingénieur en qualité logiciel dans les Yvelines. Un voyage au Japon a tout changé : les érables — leurs formes, leurs couleurs, leur silence — m'ont littéralement arrêté. Je suis rentré avec une certitude."
       >
         <div className="grid gap-6 md:grid-cols-3">
           <div className="glass gold-halo p-6">
-            <h3 className="text-sm font-semibold text-white">Un cadre pensé pour se sentir bien</h3>
+            <h3 className="text-sm font-semibold text-white">Le déclic au Japon</h3>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              L’ambiance visuelle, les lumières et le rythme du site sont conçus pour évoquer une atmosphère douce,
-              accueillante et maîtrisée, loin des clichés agressifs.
+              C'est face aux érables des jardins japonais que j'ai compris ce que je voulais faire. Pas une passion de surface — une évidence.
             </p>
           </div>
           <div className="glass rose-halo p-6">
-            <h3 className="text-sm font-semibold text-white">Une image plus premium</h3>
+            <h3 className="text-sm font-semibold text-white">L'apprentissage du métier</h3>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              La présentation met en avant le sérieux du lieu, la qualité de l’accueil et la cohérence de l’univers,
-              afin de donner envie à des visiteurs exigeants de franchir le pas.
+              J'ai appris en pépinière, puis à l'arboretum de Versailles. Cinq ans à comprendre la terre, les saisons et les arbres — avant de m'installer.
             </p>
           </div>
           <div className="glass gold-halo p-6">
-            <h3 className="text-sm font-semibold text-white">Un discours clair et rassurant</h3>
+            <h3 className="text-sm font-semibold text-white">Installé à Hénansal</h3>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              Peu de texte, bien organisé, avec un vocabulaire choisi : cela simplifie la lecture et renforce la confiance,
-              surtout pour les personnes qui découvrent ce type d’établissement.
+              Depuis janvier 2026, je cultive à Hénansal, en Côtes-d'Armor. Le climat breton est idéal pour les érables — doux, humide, sans excès.
             </p>
           </div>
         </div>
       </Section>
 
       <Section
-        eyebrow="Première visite"
-        title="Comment un nouveau visiteur perçoit ce site"
-        description="Cette partie illustre la logique du parcours : on ne cherche pas à tout dire, mais à donner envie, rassurer, et guider vers le contact ou la visite."
+        eyebrow="Ce que je cultive"
+        title="Des arbres choisis pour leur caractère"
+        description="Je sélectionne chaque essence pour sa singularité — forme du feuillage, couleurs saisonnières, comportement en pot ou en pleine terre. Rien n'est ici par hasard."
       >
         <div className="glass p-7 md:p-8 rose-halo">
-          <ol className="space-y-3 text-sm text-neutral-300 leading-relaxed list-decimal list-inside">
-            <li>
-              <span className="font-semibold text-white">Comprendre l’ambiance globale :</span>{' '}
-              l’ouverture et le Hero donnent tout de suite un ton haut de gamme, calme et assumé.
-            </li>
-            <li>
-              <span className="font-semibold text-white">Identifier les garanties :</span>{' '}
-              consentement, discrétion, hygiène, sélection et dress-code sont visibles dès le début.
-            </li>
-            <li>
-              <span className="font-semibold text-white">Se projeter dans l’expérience :</span>{' '}
-              les sections suivantes détaillent les espaces, les soirées et les informations pratiques,
-              sans surcharger ni perdre le lecteur.
-            </li>
-          </ol>
+          <ul className="space-y-3 text-sm text-neutral-300 leading-relaxed">
+            {siteConfig.essences.map((e) => (
+              <li key={e.name}>
+                <span className="font-semibold text-white">{e.name}</span>{' '}
+                <span className="italic text-neutral-400">({e.latin})</span>{' '}
+                — {e.description}
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
     </div>

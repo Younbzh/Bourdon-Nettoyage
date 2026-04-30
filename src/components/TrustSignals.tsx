@@ -1,9 +1,9 @@
 const signals = [
-  'Consentement',
-  'Discrétion',
-  'Hygiène',
-  'Dress-code',
-  'Sélection',
+  'Circuit fermé',
+  'Eau de pluie',
+  'Zéro phytosanitaire',
+  '200 espèces',
+  'Hénansal · 22',
 ];
 
 function TrustSignals() {
