@@ -64,16 +64,13 @@ function App() {
         scrolled ? 'bg-white/96 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
       }`}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 flex justify-between items-center">
-          <div className="flex items-center gap-2.5">
-            {/* Bande abeille : carré jaune + carré noir */}
-            <div className="flex gap-0.5">
-              <span className="w-2.5 h-5 rounded-sm bg-bee block" />
-              <span className="w-2.5 h-5 rounded-sm bg-coal block" />
-            </div>
-            <span className={`font-heading text-xl tracking-wide transition-colors duration-300 ${scrolled ? 'text-coal' : 'text-white'}`}>
-              {siteConfig.name}
-            </span>
-          </div>
+          <a href="/">
+            <img
+              src="/logo.jpeg"
+              alt={siteConfig.name}
+              className="h-10 w-auto rounded"
+            />
+          </a>
           <a
             href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
             className={`flex items-center gap-2 text-sm font-semibold transition-all hover:opacity-60 ${scrolled ? 'text-bee-dark' : 'text-white/90'}`}
