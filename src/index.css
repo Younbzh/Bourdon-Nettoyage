@@ -51,7 +51,7 @@ html {
 
 .ticker-track {
   display: inline-block;
-  animation: ticker 38s linear infinite;
+  animation: ticker 51s linear infinite;
 }
 
 /* Scrollbar */
