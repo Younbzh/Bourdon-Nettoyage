@@ -1,127 +1,125 @@
 export const siteConfig = {
-  name: "Érables du Japon",
-  fullName: "Érables du Japon · Victor Diogo",
-  tagline: "Pépinière à Hénansal, Côtes-d'Armor",
-  slogan: "De la graine à la vente, depuis les serres bretonnes.",
+  name: "Bourdon Nettoyage",
+  fullName: "Bourdon Nettoyage",
+  tagline: "Nettoyage professionnel · Crédin, Morbihan",
+  slogan: "Vos surfaces impeccables. Votre bourdon, chassé.",
   description:
-    "Je cultive plus de 200 espèces d'érables du Japon à Hénansal, en Côtes-d'Armor. Depuis un voyage au Japon qui a tout changé, je propose aussi ginkgo, sassafras et chênes, en circuit fermé.",
+    "Auto-entrepreneur dans le nettoyage professionnel à Crédin, Morbihan. Plus de 10 ans d'expérience pour l'entretien de vos vitres, terrasses, bureaux, textiles, matelas, gîtes et logements Airbnb.",
 
   contact: {
-    address: "Hénansal",
-    city: "Hénansal",
-    postalCode: "22400",
-    fullAddress: "Hénansal, 22400 Côtes-d'Armor",
-    phone: "06 51 54 85 14",
-    email: "v.diog111@gmail.com",
-  },
-
-  opening: {
-    date: "Janvier 2026",
-    status: "Installé à Hénansal",
-    message: "Je suis installé à Hénansal depuis janvier 2026 — contactez-moi pour visiter.",
+    city: "Crédin",
+    postalCode: "56580",
+    fullAddress: "Crédin, 56580 Morbihan",
+    phone: "07 82 21 83 62",
+    email: "bourdonnettoyage@hotmail.com",
   },
 
   founder: {
-    name: "Victor Diogo",
-    age: 36,
-    role: "Pépiniériste",
+    name: "M. Bourdon",
+    role: "Auto-entrepreneur · Nettoyage professionnel",
     shortBio:
-      "Ancien ingénieur logiciel, reconverti par passion pour les érables du Japon — je cultive depuis cinq ans mes arbres en Bretagne, du sol à la vente.",
+      "Fort de plus de 10 ans d'expérience dans le nettoyage professionnel, j'ai créé mon entreprise pour vous proposer un service de proximité, soigné et fiable. Particuliers, professionnels, gîtes et Airbnb : je m'adapte à vos besoins.",
   },
 
   about: {
-    concept:
-      "Depuis la graine jusqu'à la vente, dans le doux climat breton.",
+    concept: "Un service de qualité, à taille humaine.",
     story:
-      "Ingénieur en qualité logiciel originaire des Yvelines, je suis tombé sous le charme des érables lors d'un voyage au Japon. J'ai tout quitté pour apprendre mon métier, d'abord en pépinière, puis à l'arboretum de Versailles, avant de m'installer à Hénansal en janvier 2026.",
+      "Avec plus de 10 ans passés dans le nettoyage professionnel, j'ai décidé de me lancer à mon compte pour être au plus près de mes clients. Du particulier au professionnel, je prends en charge vitres, terrasses, bureaux et textiles avec le même niveau d'exigence — quel que soit le chantier. Et comme le bourdon qui, selon la physique, ne devrait pas pouvoir voler… je ne m'arrête jamais.",
   },
 
-  essences: [
+  sap: {
+    title: "-50% sur votre facture",
+    subtitle: "Dispositif SAP · Avance immédiate",
+    description:
+      "En tant que particulier, vous pouvez bénéficier de l'avance immédiate de crédit d'impôt grâce à mon partenariat avec un organisme agréé SAP. Vous ne réglez que 50 % du montant de la prestation au moment de la facture — le reste est pris en charge directement.",
+    note: "Applicable aux particuliers uniquement, sous conditions d'éligibilité.",
+  },
+
+  services: [
     {
-      name: "Érables du Japon",
-      latin: "Acer palmatum",
+      name: "Nettoyage de vitres",
       description:
-        "Plus de 200 espèces que j'ai sélectionnées pour leurs formes, couleurs et comportements saisonniers.",
-      icon: "leaf",
+        "Vitrerie intérieure et extérieure pour particuliers et professionnels. Un résultat net, sans trace, lumineux.",
+      icon: "droplets",
     },
     {
-      name: "Ginkgo",
-      latin: "Ginkgo biloba",
+      name: "Terrasses & extérieurs",
       description:
-        "Arbre fossile aux feuilles en éventail, symbole de longévité et de résilience.",
-      icon: "leaf",
+        "Nettoyage haute pression de vos terrasses, dalles, allées et espaces extérieurs. Retrouvez l'éclat d'origine.",
+      icon: "sun",
     },
     {
-      name: "Sassafras",
-      latin: "Sassafras albidum",
+      name: "Bureaux & locaux",
       description:
-        "Arbre aux feuilles polymorphes, doux parfum et couleurs d'automne flamboyantes.",
-      icon: "leaf",
+        "Entretien de vos espaces professionnels, régulier ou ponctuel. Un environnement propre pour vous, vos équipes et vos clients.",
+      icon: "building",
     },
     {
-      name: "Chênes",
-      latin: "Quercus sp.",
+      name: "Moquettes, tapis & canapés",
       description:
-        "Des arbres majestueux que je sélectionne pour leur vigueur et leur longévité.",
-      icon: "tree",
+        "Nettoyage en profondeur de vos moquettes, tapis, canapés et tout tissu d'ameublement. Traitement adapté à chaque matière.",
+      icon: "layers",
+    },
+    {
+      name: "Matelas",
+      description:
+        "Nettoyage et assainissement complet de vos matelas pour une literie saine et durablement propre. Essentiel pour votre confort et votre hygiène.",
+      icon: "sparkles",
+    },
+    {
+      name: "Gîtes & Airbnb",
+      description:
+        "Remise en état rapide et complète entre chaque location. Je m'adapte à votre planning pour que vos voyageurs arrivent dans un logement impeccable.",
+      icon: "home",
     },
   ],
 
   values: [
     {
-      title: "Eau de pluie",
+      title: "Remises fidélité",
       description:
-        "J'irrigue entièrement à partir des eaux récupérées sur les serres — aucun recours au réseau.",
-      icon: "droplets",
+        "Pour les clients avec un entretien mensuel régulier, je mets en place des tarifs préférentiels. Votre confiance mérite d'être récompensée.",
+      icon: "badge",
     },
     {
-      title: "Zéro phytosanitaire",
+      title: "Zone 100 km",
       description:
-        "Mes serres permettent une culture saine : presque aucun produit chimique.",
-      icon: "leaf",
+        "Je me déplace dans un rayon de 100 km autour de Crédin. Contactez-moi pour vérifier ma disponibilité dans votre secteur.",
+      icon: "map",
     },
     {
-      title: "Circuit fermé",
+      title: "Toujours en vol",
       description:
-        "De la sélection des graines à la vente, je maîtrise tout sur place, à Hénansal.",
-      icon: "rotate",
+        "Comme l'insecte qui lui a donné son nom, M. Bourdon bourdonne d'un chantier à l'autre — sans jamais traîner. Devis gratuit, intervention rapide.",
+      icon: "clock",
     },
     {
-      title: "Climat breton",
+      title: "10 ans d'expérience",
       description:
-        "Le doux et humide climat des Côtes-d'Armor convient parfaitement aux érables du Japon.",
-      icon: "cloud",
-    },
-  ],
-
-  events: [
-    {
-      name: "Marché des plantes de Plurien",
-      date: "Jeudi 14 mai 2026",
-      location: "Plurien, Côtes-d'Armor",
+        "Je connais les matériaux, les produits adaptés et les bons gestes. Mon expertise vous garantit un résultat professionnel à chaque intervention.",
+      icon: "star",
     },
   ],
 
   location: {
-    detail: "Hénansal, commune rurale entre Lamballe et Saint-Brieuc",
-    region: "Côtes-d'Armor · Bretagne",
+    detail: "Crédin, Morbihan — déplacements jusqu'à 100 km",
+    region: "Morbihan · Bretagne",
   },
-
-  disclaimer:
-    "© 2026 Érables du Japon · Victor Diogo — Pépinière à Hénansal, Côtes-d'Armor. Toutes les plantes sont cultivées sur place.",
 
   seo: {
     keywords: [
-      "érables du Japon Bretagne",
-      "pépinière érables Côtes-d'Armor",
-      "acer palmatum Bretagne",
-      "Victor Diogo Hénansal",
-      "pépinière Hénansal 22400",
-      "ginkgo sassafras Bretagne",
-      "érables du Japon vente",
-      "pépinière Côtes-d'Armor",
+      "nettoyage professionnel Morbihan",
+      "nettoyage vitres Crédin",
+      "nettoyage moquette Morbihan",
+      "nettoyage gîte Airbnb Bretagne",
+      "auto-entrepreneur nettoyage 56",
+      "SAP nettoyage crédit impôt",
+      "Bourdon Nettoyage",
+      "nettoyage terrasse Morbihan",
+      "nettoyage matelas canapé Morbihan",
+      "nettoyage bureaux locaux Morbihan",
     ],
     metaDescription:
-      "Pépinière d'érables du Japon à Hénansal, Côtes-d'Armor. Victor Diogo cultive 200 espèces d'acer palmatum, ginkgo, sassafras et chênes en circuit fermé. De la graine à la vente.",
+      "Bourdon Nettoyage — auto-entrepreneur à Crédin, Morbihan. Plus de 10 ans d'expérience : vitres, terrasses, moquettes, matelas, bureaux et gîtes. -50% pour les particuliers via le dispositif SAP. Devis gratuit.",
   },
 };
